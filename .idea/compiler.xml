@@ -44,6 +44,7 @@
       <module name="Your Empire API" target="1.8" />
       <module name="Your Empire Client" target="1.8" />
       <module name="Your Empire Server" target="1.8" />
+      <module name="YourEmpire" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
