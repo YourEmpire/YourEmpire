@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Your Empire API/Your Empire API.iml" filepath="$PROJECT_DIR$/Your Empire API/Your Empire API.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Your Empire Client/Your Empire Client.iml" filepath="$PROJECT_DIR$/Your Empire Client/Your Empire Client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Your Empire Server/Your Empire Server.iml" filepath="$PROJECT_DIR$/Your Empire Server/Your Empire Server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YourEmpire.iml" filepath="$PROJECT_DIR$/YourEmpire.iml" />
+    </modules>
+  </component>
+</project>
