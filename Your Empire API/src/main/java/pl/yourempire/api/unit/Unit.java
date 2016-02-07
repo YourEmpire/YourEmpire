@@ -16,8 +16,8 @@ public class Unit implements UnitInfo
     private int HP;
     private int DMG;
     private int SPD;
-    private List<TerrainObjectType> TerrainCanMoves = new ArrayList<TerrainObjectType>();
-    private List<TerrainObjectType> BonusTerrain = new ArrayList<TerrainObjectType>();
+    private List<TerrainObjectType> terrainCanMoves = new ArrayList<TerrainObjectType>();
+    private List<TerrainObjectType> bonusTerrain = new ArrayList<TerrainObjectType>();
 
 
     public int getHP()
@@ -57,12 +57,12 @@ public class Unit implements UnitInfo
 
     public void addTerrainCanMove(TerrainObjectType t)
     {
-        this.TerrainCanMoves.add(t);
+        this.terrainCanMoves.add(t);
     }
 
     public void addBonusTerrain(TerrainObjectType t)
     {
-        this.BonusTerrain.add(t);
+        this.bonusTerrain.add(t);
     }
 
 }
