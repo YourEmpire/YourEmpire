@@ -7,5 +7,4 @@ public class Squad extends Unit
     private Location loc;
     private Commander com;
 
-
 }

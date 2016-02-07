@@ -4,13 +4,12 @@ import pl.yourempire.api.object.Squad;
 import pl.yourempire.api.object.TerrainObject;
 import pl.yourempire.api.object.TerrainObjectType;
 import pl.yourempire.api.unit.info.UnitInfo;
+import pl.yourempire.api.object.OnMapObject;
 
 import java.util.ArrayList;
 import java.util.List;
-/**
- * Created by Administratorek on 2016-02-07.
- */
-public class Unit implements UnitInfo
+
+public class Unit extends OnMapObject implements UnitInfo
 {
 
     private int HP;
@@ -31,19 +30,19 @@ public class Unit implements UnitInfo
         this.b = new Squad();
 
     }
-    public int getHP()
+    public final int getHP()
     {
         return this.HP;
     }
 
 
-    public int getDMG()
+    public final int getDMG()
     {
         return this.DMG;
     }
 
 
-    public int getSPD()
+    public final int getSPD()
     {
         return this.SPD;
     }
