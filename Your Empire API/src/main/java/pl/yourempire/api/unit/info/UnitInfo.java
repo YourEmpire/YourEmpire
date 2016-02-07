@@ -2,6 +2,9 @@ package pl.yourempire.api.unit.info;
 
 public interface UnitInfo
 {
-    public int getHP();
-    public int getDMG();
+     int getHP(); // retrun HP
+     int getDMG(); // Return DMG without bonus
+     int getSPD(); // returns Speed of Unit
+     int getATKBonus(); // for exemple if bonus amount equals 20 we do this int DmgAndBonus = getDMG() * getATKBonus();
+
 }
