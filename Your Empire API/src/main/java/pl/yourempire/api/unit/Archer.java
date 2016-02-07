@@ -10,7 +10,7 @@ public class Archer extends Unit
 {
     public Archer()
     {
-        setDMG(10);
+        setDMG(12);
         setHP(100);
         setSPD(10);
         addBonusTerrain(TerrainObjectType.hillsTerrain);
