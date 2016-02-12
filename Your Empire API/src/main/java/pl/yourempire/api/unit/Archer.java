@@ -1,8 +1,6 @@
 package pl.yourempire.api.unit;
 
 
-import pl.yourempire.api.object.TerrainObjectType;
-
 /**
  * Created by Administratorek on 2016-02-07.
  */

@@ -1,7 +1,7 @@
 package pl.yourempire.api.object;
 
-/**
- * Created by Administratorek on 2016-02-07.
- */
-public class Commander {
+import pl.yourempire.api.unit.Unit;
+
+public class Commander extends Unit
+{
 }

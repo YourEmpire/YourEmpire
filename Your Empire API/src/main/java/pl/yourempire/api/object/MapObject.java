@@ -1,12 +1,15 @@
 package pl.yourempire.api.object;
 
-import com.sun.prism.Texture;
+import pl.yourempire.api.positioning.Location;
 
-/**
- * Created by Administratorek on 2016-02-07.
- */
 public class MapObject
 {
+    Location      l;
+    TerrainObject t;
 
 
+    public final TerrainObject getTerrain()
+    {
+        return this.t;
+    }
 }

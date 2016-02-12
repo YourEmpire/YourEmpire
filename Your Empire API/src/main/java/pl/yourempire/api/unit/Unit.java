@@ -1,20 +1,18 @@
 package pl.yourempire.api.unit;
 
 import pl.yourempire.api.object.Squad;
-import pl.yourempire.api.object.TerrainObject;
-import pl.yourempire.api.object.TerrainObjectType;
 import pl.yourempire.api.unit.info.UnitInfo;
-import pl.yourempire.api.object.OnMapObject;
+import pl.yourempire.api.object.MapObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Unit extends OnMapObject implements UnitInfo
+public class Unit extends MapObject implements UnitInfo
 {
 
-    private int HP;
-    private int DMG;
-    private int SPD;
+    private int hp;
+    private int dmg;
+    private int spd;
     private List<TerrainObjectType> terrainCanMoves = new ArrayList<TerrainObjectType>();
     private List<TerrainObjectType> bonusTerrain = new ArrayList<TerrainObjectType>();
     private Squad b;
@@ -24,9 +22,9 @@ public class Unit extends OnMapObject implements UnitInfo
     }
     public Unit(int h , int d , int spd )
     {
-        this.HP = h;
-        this.DMG = d;
-        this.SPD = spd;
+        this.hp = h;
+        this.dmg = d;
+        this.spd = spd;
         this.b = new Squad();
 
     }
