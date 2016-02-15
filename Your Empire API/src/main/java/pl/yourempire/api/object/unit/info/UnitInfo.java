@@ -8,7 +8,7 @@ public interface UnitInfo
 
     int getSPD(); // returns Speed of Unit
 
-    int getATKBonus(); // for exemple if bonus amount equals 20 we do this int DmgAndBonus = getDMG() * getATKBonus()
+
 
 }
 

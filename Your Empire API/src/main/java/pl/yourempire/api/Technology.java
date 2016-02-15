@@ -8,7 +8,7 @@ public class Technology
 {
 private String name;
 private int price;
-private List<Technology> requierdTech = new ArrayList<Technology>();
+private List<Technology> requierdTech = new ArrayList<>();
 
 
     public int getPrice()

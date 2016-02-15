@@ -1,15 +1,14 @@
 package pl.yourempire.api.object.unit;
 
-import pl.yourempire.api.object.Squad;
-import pl.yourempire.api.object.Texture;
-import pl.yourempire.api.object.WeatherType;
+import pl.yourempire.api.Technology;
+import pl.yourempire.api.object.*;
 import pl.yourempire.api.object.terrain.TerrainObject;
 import pl.yourempire.api.object.terrain.TerrainObjectType;
 import pl.yourempire.api.object.unit.info.UnitInfo;
 import pl.yourempire.api.positioning.Location;
-import pl.yourempire.api.object.MapObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class Unit extends MapObject implements UnitInfo
@@ -20,7 +19,9 @@ public abstract class Unit extends MapObject implements UnitInfo
     private Squad b;
     private Location loc;
     private Texture texture;
-    private List<WeatherType> bonusWeathers = new ArrayList<>();
+    private HashMap<WeatherType,Bonus> weatherBonuses = new HashMap<>();
+    private HashMap<Technology,Bonus> technologyBonuses = new HashMap<>();
+    private HashMap<Commander,Bonus> commanderBonuses = new HashMap<>();
 
     protected Unit()
     {
@@ -112,13 +113,6 @@ public abstract class Unit extends MapObject implements UnitInfo
         return terrainCanMoves.contains(object.getType());
     }
 
-    public void addBonusWeather(WeatherType weather)
-    {
-        this.bonusWeathers.add(weather);
-    }
-    public void removeBonusWeather(WeatherType weather)
-    {
-        this.bonusWeathers.remove(weather);
-    }
+
 
 }
