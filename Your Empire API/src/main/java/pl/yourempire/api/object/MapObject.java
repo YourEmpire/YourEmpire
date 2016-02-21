@@ -7,10 +7,18 @@ public class MapObject
 {
     Location l;
     TerrainObject t;
+    ID id;
 
-
-    public final TerrainObject getTerrain()
+    public TerrainObject getTerrain()
     {
         return this.t;
+    }
+    public Location getLocation()
+    {
+        return this.l;
+    }
+    public ID getID()
+    {
+        return this.id;
     }
 }

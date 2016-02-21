@@ -1,11 +1,12 @@
 package pl.yourempire.api.object.unit;
 
-import pl.yourempire.api.Technology;
 import pl.yourempire.api.object.*;
 import pl.yourempire.api.object.terrain.TerrainObject;
 import pl.yourempire.api.object.terrain.TerrainObjectType;
 import pl.yourempire.api.object.unit.info.UnitInfo;
 import pl.yourempire.api.positioning.Location;
+import pl.yourempire.api.technology.Technology;
+import pl.yourempire.api.weather.WeatherType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,9 +14,9 @@ import java.util.List;
 
 public abstract class Unit extends MapObject implements UnitInfo
 {
-    private int hp, dmg, spd;
-    private List<TerrainObjectType> terrainCanMoves = new ArrayList<>();
-    private List<TerrainObjectType> bonusTerrain = new ArrayList<>();
+    protected int hp, dmg, spd;
+    protected List<TerrainObjectType> terrainCanMoves = new ArrayList<>();
+    protected List<TerrainObjectType> bonusTerrain = new ArrayList<>();
     private Squad b;
     private Location loc;
     private Texture texture;

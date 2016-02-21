@@ -1,6 +1,6 @@
 package pl.yourempire.api.object;
 
-public enum WeatherType
+public class Weather
 {
 
 

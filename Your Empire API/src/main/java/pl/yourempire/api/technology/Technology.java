@@ -1,14 +1,13 @@
-package pl.yourempire.api;
-
+package pl.yourempire.api.technology;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Technology
 {
-private String name;
-private int price;
-private List<Technology> requierdTech = new ArrayList<>();
+    private String name;
+    private int price;
+    private List<Technology> requiredTech = new ArrayList<>();
 
 
     public int getPrice()
@@ -31,21 +30,21 @@ private List<Technology> requierdTech = new ArrayList<>();
         this.name = name;
     }
 
-    public List<Technology> getRequierdTech()
+    public List<Technology> getRequiredTech()
     {
-        return this.requierdTech;
+        return this.requiredTech;
     }
 
     public void setRequierdTech(List<Technology> val)
     {
-        this.requierdTech = val;
+        this.requiredTech = val;
     }
 
-    public void addRequiredTe(Technology val)
+    public void addRequiredTech(Technology val)
     {
-        if(!this.getRequierdTech().contains(val))
+        if (! this.getRequiredTech().contains(val))
         {
-        this.getRequierdTech().add(val);
+            this.getRequiredTech().add(val);
         }
     }
 }

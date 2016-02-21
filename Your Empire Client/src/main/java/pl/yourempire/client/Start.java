@@ -1,6 +1,7 @@
 package pl.yourempire.client;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -13,13 +14,13 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-
 import pl.yourempire.api.logger.YEFormatter;
 
 public final class Start
 {
     public static final String VERSION = "0.1";
-    
+    public static Locale langugage = Locale.ENGLISH;
+
     protected static Properties gameProps;
     protected static boolean debug = false;
     private Start()
@@ -28,7 +29,6 @@ public final class Start
     
     public static void main(String[] args)
     {
-
         boolean notParsed = false;
         Options o = new Options();
         o.addOption(Option.builder("h").longOpt("help").desc("Displays this help message.").build());
@@ -42,7 +42,7 @@ public final class Start
             if (cl.hasOption("h"))
             {
                 HelpFormatter help = new HelpFormatter();
-                help.printHelp("java -jar yourempire.jar", "Your Empire " + VERSION + " command line options", o, "Issues? Report them on GitHub - http://github.com/YourEmpire/YourEmpire");
+                help.printHelp("java -jar yourempire.jar", "Your Empire " + VERSION + " command line options", o, "Issues? Report them on GitHub - http://github.com/YourEmpire/YourEmpire/issues");
                 System.exit(0);
             }
             

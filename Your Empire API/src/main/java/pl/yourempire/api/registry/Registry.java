@@ -3,9 +3,9 @@ package pl.yourempire.api.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.yourempire.api.Technology;
 import pl.yourempire.api.object.terrain.TerrainObjectType;
 import pl.yourempire.api.object.unit.info.UnitInfo;
+import pl.yourempire.api.technology.Technology;
 
 public class Registry
 {
@@ -19,8 +19,11 @@ public class Registry
         unitInfos = new ArrayList<>();
     }
 
-    public static void registerObject(Object o, String id)
+    public static void registerObject(Object o)
     {
+        if (o instanceof UnitInfo)
+        {
 
+        }
     }
 }
