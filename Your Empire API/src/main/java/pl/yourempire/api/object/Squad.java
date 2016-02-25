@@ -9,4 +9,9 @@ public class Squad extends Unit
     private Commander  com;
     private List<Unit> units;
 
+
+    public void addUnit(Unit u)
+    {
+    this.units.add(u);
+    }
 }

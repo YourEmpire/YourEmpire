@@ -1,8 +1,5 @@
 package pl.yourempire.api.object;
 
-/**
- * Created by Administratorek on 2016-02-14.
- */
 public class Bonus
 {
   private int dmg;
