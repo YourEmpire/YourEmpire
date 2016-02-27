@@ -26,7 +26,6 @@ public final class Start
     private Start()
     {
     }
-    
     public static void main(String[] args)
     {
         boolean notParsed = false;
