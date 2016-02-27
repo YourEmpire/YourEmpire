@@ -5,7 +5,6 @@ import pl.yourempire.api.religion.Religion;
 public class CityObject extends MapObject
 {
     private int population;
-
     private Religion religion;
 
     public int getPopulation() {
