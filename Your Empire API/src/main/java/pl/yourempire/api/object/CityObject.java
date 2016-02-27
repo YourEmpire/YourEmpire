@@ -15,11 +15,11 @@ public class CityObject extends MapObject
         this.population = population;
     }
 
-    public Religion getReligen() {
+    public Religion getReligion() {
         return this.religion;
     }
 
-    public void setReligen(Religion religen) {
-        this.religion = religen;
+    public void setReligion(Religion religion) {
+        this.religion = religion;
     }
 }
