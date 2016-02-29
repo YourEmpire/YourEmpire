@@ -4,7 +4,6 @@ package pl.yourempire.api.object;
  * Created by mikigal on 2016-02-29.
  */
 public class Player {
-
     private ID id;
     private Integer money;
     private CityObject[] cities;
