@@ -6,6 +6,7 @@ import java.util.UUID;
  * Created by mikigal on 2016-02-29.
  */
 public class Player {
+
     private ID id;
     private UUID uuid;
     private Integer money;
