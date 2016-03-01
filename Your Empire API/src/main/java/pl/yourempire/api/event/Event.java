@@ -2,12 +2,13 @@ package pl.yourempire.api.event;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Event
 {
-    private static Map<Class<Event>, ListenerCaller[]> listenerMap = new HashMap<>();
+    private static Map<Class<Event>, ArrayList<ListenerCaller>> listenerMap = new HashMap<>();
 
     public static void callEvent(Event e)
     {

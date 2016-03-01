@@ -1,5 +1,7 @@
 package pl.yourempire.api.object;
 
+
+import java.util.ArrayList;
 import java.util.UUID;
 
 /**
@@ -7,26 +9,18 @@ import java.util.UUID;
  */
 public class Player {
 
-    private ID id;
     private UUID uuid;
     private Integer money;
-    private CityObject[] cities;
+    private ArrayList<CityObject> cities = new ArrayList<>();
+    private ArrayList<Squad> squads = new ArrayList<>();
     private Commander commander;
 
-    public Player(ID id, UUID uuid, Integer money, CityObject[] cities, Commander commander) {
-        this.id = id;
+    public Player(UUID uuid, Integer money, ArrayList<CityObject> cities, ArrayList<Squad> squads, Commander commander) {
         this.uuid = uuid;
         this.money = money;
         this.cities = cities;
+        this.squads = squads;
         this.commander = commander;
-    }
-
-    public ID getId() {
-        return this.id;
-    }
-
-    public void setId(ID id) {
-        this.id = id;
     }
 
     public Integer getMoney() {
@@ -37,12 +31,20 @@ public class Player {
         this.money = money;
     }
 
-    public CityObject[] getCities() {
-        return this.cities;
+    public ArrayList<CityObject> getCities() {
+        return cities;
     }
 
-    public void setCities(CityObject[] cities) {
+    public void setCities(ArrayList<CityObject> cities) {
         this.cities = cities;
+    }
+
+    public ArrayList<Squad> getSquads() {
+        return squads;
+    }
+
+    public void setSquads(ArrayList<Squad> squads) {
+        this.squads = squads;
     }
 
     public UUID getUuid() {
