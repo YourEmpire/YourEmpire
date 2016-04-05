@@ -79,13 +79,11 @@ public final class Start
             try
             {
                 log.addHandler(new FileHandler());
-                
-            }
-            catch (SecurityException | IOException e)
+
+            } catch (SecurityException | IOException e)
             {
                 log.log(Level.SEVERE, "Cannot start debug mode!", e);
             }
         }
-        
     }
 }

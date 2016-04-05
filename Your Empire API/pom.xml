@@ -11,6 +11,14 @@
 
     <artifactId>YourEmpireAPI</artifactId>
 
+    <build>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+    </build>
 
 
 </project>

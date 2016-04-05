@@ -6,6 +6,10 @@ public final class Validator
     {
     }
 
+    public static void main(String[] args)
+    {
+        new NullPointerException(null);
+    }
     public static void notNull(Object o, String errorMsg)
     {
         if (o == null)

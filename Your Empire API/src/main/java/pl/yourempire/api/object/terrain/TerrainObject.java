@@ -1,11 +1,13 @@
 package pl.yourempire.api.object.terrain;
 
+import pl.yourempire.api.object.MapObject;
 import pl.yourempire.api.positioning.Location;
 
 public class TerrainObject
 {
     private TerrainObjectType type;
     private Location loc;
+    private MapObject objectOn;
 
     public TerrainObject(TerrainObjectType type)
     {

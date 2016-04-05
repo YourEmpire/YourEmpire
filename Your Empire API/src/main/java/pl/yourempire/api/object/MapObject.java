@@ -5,9 +5,9 @@ import pl.yourempire.api.positioning.Location;
 
 public class MapObject
 {
-    Location l;
-    TerrainObject t;
-    ID id;
+    private Location l;
+    private TerrainObject t;
+    private ID id;
 
     public TerrainObject getTerrain()
     {

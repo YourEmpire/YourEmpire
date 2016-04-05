@@ -1,8 +1,8 @@
 package pl.yourempire.api.event;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +28,28 @@ public class Event
                 }
             }
         }
+    }
+
+    public static boolean isEvent(Class<?> clazz)
+    {
+        try
+        {
+            clazz.cast(Event.class);
+            return true;
+        } catch(ClassCastException e)
+        {
+            return false;
+        }
+    }
+
+    public static void registerListener(Listener l)
+    {
+        Arrays.asList(l.getClass().getMethods()).forEach(m -> {
+            if (m.getParameterTypes().length == 1 && isEvent(m.getParameterTypes()[0]))
+            {
+                listenerMap.get(m.getParameterTypes()[0]).add(new ListenerCaller(l, m));
+            }
+        });
     }
 
     protected boolean cancelled;
