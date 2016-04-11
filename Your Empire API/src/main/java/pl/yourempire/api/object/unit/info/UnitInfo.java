@@ -1,12 +1,17 @@
 package pl.yourempire.api.object.unit.info;
 
-public interface UnitInfo
+import pl.yourempire.api.extensibleenum.Constant;
+import pl.yourempire.api.object.ID;
+
+public interface UnitInfo extends Constant<UnitInfo>
 {
+    ID getID();
+
     int getHP(); // retrun HP
 
-    int getDMG(); // Return DMG without bonus
+    int getDamage(); // Return DMG without bonus
 
-    int getSPD(); // returns Speed of Unit
+    int getSpeed(); // returns Speed of Unit
 
 
 

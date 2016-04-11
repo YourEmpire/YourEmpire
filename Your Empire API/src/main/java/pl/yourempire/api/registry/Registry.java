@@ -17,6 +17,8 @@ public class Registry
     {
         terrainObjectTypes = new ArrayList<>();
         unitInfos = new ArrayList<>();
+
+
     }
 
     public static void registerObject(Object o)

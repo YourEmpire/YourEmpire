@@ -1,60 +1,36 @@
 package pl.yourempire.api.extensibleenum;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExtensibleEnum
+public class ExtensibleEnum<T>
 {
-    private Map<String, ExtensibleEnum> constants;
+    private Map<String, T> constants;
 
-    private ExtensibleEnum()
+    public ExtensibleEnum()
     {
-        constants = new HashMap<>();
-        for (Field f : getClass().getFields())
-        {
-            if (Modifier.isFinal(f.getModifiers()) && Modifier.isStatic(f.getModifiers()))
-            {
-                try
-                {
-                    addConstant(f.getName(), (ExtensibleEnum) f.get(null), false);
-                } catch (IllegalAccessException e)
-                {
-                    // Can't throw IllegalAccessException, but printing stack trace
-                    e.printStackTrace();
-                }
-            }
-        }
+        this.constants = new HashMap<>();
     }
 
-    public void addConstant(String name, ExtensibleEnum t, boolean showCastTrace)
+
+    public void addConstant(String id, T constant)
     {
-        if (constants.containsKey(name))
+        if (constants.containsKey(id))
         {
-            throw new IllegalArgumentException("Enum " + getClass().getName() + " contains object " + t + " with name" + name + "!");
+            throw new IllegalArgumentException(id + " already in use!");
         }
-        try
-        {
-            t.getClass().cast(getClass());
-            constants.put(name, t);
-        }
-        catch (ClassCastException e)
-        {
-            if (showCastTrace)
-            {
-                throw new IllegalArgumentException("Cannot add constant! " + e.getMessage(), e);
-            }
-        }
+        constants.put(id, constant);
     }
 
-    public void addConstant(String name, ExtensibleEnum t)
-    {
-        addConstant(name, t, true);
-    }
-
-    public ExtensibleEnum valueOf(String name)
+    public T valueOf(String name)
     {
         return constants.get(name);
     }
+
+    public Collection<T> values()
+    {
+        return constants.values();
+    }
+
 }
