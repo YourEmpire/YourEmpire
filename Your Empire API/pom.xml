@@ -19,6 +19,4 @@
         </testResources>
         <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
     </build>
-
-
 </project>
