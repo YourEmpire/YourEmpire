@@ -33,4 +33,8 @@ public class ExtensibleEnum<T>
         return constants.values();
     }
 
+    public int getSize()
+    {
+        return constants.size();
+    }
 }

@@ -5,99 +5,33 @@ import pl.yourempire.api.object.terrain.TerrainObject;
 import pl.yourempire.api.object.terrain.TerrainObjectType;
 import pl.yourempire.api.object.unit.info.UnitInfo;
 import pl.yourempire.api.positioning.Location;
-import pl.yourempire.api.technology.Technology;
-import pl.yourempire.api.weather.WeatherType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public abstract class Unit extends MapObject implements UnitInfo
 {
-    protected int hp, dmg, spd;
-    protected List<TerrainObjectType> terrainCanMoves = new ArrayList<>();
-    protected List<TerrainObjectType> bonusTerrain = new ArrayList<>();
-    private Squad b;
-    private Location loc;
-    private Texture texture;
-    private HashMap<WeatherType,Bonus> weatherBonuses = new HashMap<>();
-    private HashMap<Technology,Bonus> technologyBonuses = new HashMap<>();
-    private HashMap<Commander,Bonus> commanderBonuses = new HashMap<>();
+    protected List<TerrainObjectType> movableTerrain = new ArrayList<>();
+    protected Squad b;
+    protected Location loc;
 
     protected Unit()
     {
     }
 
-    protected Unit(int h, int d, int spd)
+    public Unit(UnitInfo info, Squad s)
     {
-        this.hp = h;
-        this.dmg = d;
-        this.spd = spd;
-        this.b = new Squad();
+
     }
 
-    public int getHP()
+    public Unit(UnitInfo info)
     {
-        return this.hp;
+        this(info, new Squad());
     }
 
-    public int getDMG()
+    public void addMovableTerrain(TerrainObjectType t)
     {
-        return this.dmg;
-    }
-
-    public int getSPD()
-    {
-        return this.spd;
-    }
-
-    public int getATKBonus()
-    {
-        return this.dmg;
-    }
-
-    public void setHP(int hp)
-    {
-        this.hp = hp;
-    }
-
-    public void setDMG(int dmg)
-    {
-        this.dmg = dmg;
-    }
-
-    public void setSPD(int spd)
-    {
-        this.spd = spd;
-    }
-
-    public Location getLocation()
-    {
-        return this.loc;
-    }
-
-    public void setLocation(Location newLoc)
-    {
-        if (newLoc == null)
-        {
-            throw new IllegalArgumentException("New location cannot be null!");
-        }
-        this.loc = newLoc;
-    }
-
-    public Texture getTexture()
-    {
-        return this.texture;
-    }
-
-    public void addTerrainCanMove(TerrainObjectType t)
-    {
-        this.terrainCanMoves.add(t);
-    }
-
-    public void addBonusTerrain(TerrainObjectType t)
-    {
-        this.bonusTerrain.add(t);
+        this.movableTerrain.add(t);
     }
 
     public Squad getSquad()
@@ -111,9 +45,6 @@ public abstract class Unit extends MapObject implements UnitInfo
 
     public boolean canMoveOn(TerrainObject object)
     {
-        return terrainCanMoves.contains(object.getType());
+        return movableTerrain.contains(object.getType());
     }
-
-
-
 }

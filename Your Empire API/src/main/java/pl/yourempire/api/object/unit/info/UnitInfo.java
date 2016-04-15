@@ -1,19 +1,20 @@
 package pl.yourempire.api.object.unit.info;
 
-import pl.yourempire.api.extensibleenum.Constant;
-import pl.yourempire.api.object.ID;
+import java.util.List;
+import java.util.Map;
 
-public interface UnitInfo extends Constant<UnitInfo>
+import pl.yourempire.api.object.unit.Bonus;
+import pl.yourempire.api.object.ID;
+import pl.yourempire.api.object.terrain.TerrainObjectType;
+
+
+public interface UnitInfo
 {
     ID getID();
+    int getStartHP();
+    int getDamage();
+    int getSpeed();
 
-    int getHP(); // retrun HP
-
-    int getDamage(); // Return DMG without bonus
-
-    int getSpeed(); // returns Speed of Unit
-
-
-
+    Map<TerrainObjectType, List<Bonus>> getBonuses();
 }
 

@@ -1,4 +1,4 @@
-package pl.yourempire.api.object;
+package pl.yourempire.api.object.unit;
 
 public class Bonus
 {

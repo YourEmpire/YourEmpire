@@ -28,4 +28,14 @@ public class TerrainObject
     {
         return this.type;
     }
+
+    public MapObject getObjectOn()
+    {
+        return objectOn;
+    }
+
+    public void setObjectOn(MapObject objectOn)
+    {
+        this.objectOn = objectOn;
+    }
 }
