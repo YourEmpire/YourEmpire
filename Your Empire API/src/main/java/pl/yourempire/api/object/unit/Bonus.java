@@ -2,33 +2,32 @@ package pl.yourempire.api.object.unit;
 
 public class Bonus
 {
-  private int dmg;
-  private int hp;
-  private int spd;
+    private int plusDmg, plusHp;
 
-  public int getDmg()
-  {
-    return dmg;
-  }
+    public Bonus(int plusDmg, int plusHp)
+    {
+        this.plusDmg = plusDmg;
+        this.plusHp = plusHp;
+    }
 
-  public int getHp()
-  {
-    return hp;
-  }
+    public int getPlusDmg()
+    {
+        return plusDmg;
+    }
 
-  public int getSpd()
-  {
-    return spd;
-  }
+    public void setPlusDmg(int plusDmg)
+    {
 
-  public Bonus(int d , int h , int s)
-  {
-    this.dmg = d;
-    this.hp = h;
-    this.spd = s;
-  }
+        this.plusDmg = plusDmg;
+    }
 
+    public int getPlusHp()
+    {
+        return plusHp;
+    }
 
-
-
+    public void setPlusHp(int plusHp)
+    {
+        this.plusHp = plusHp;
+    }
 }

@@ -9,18 +9,28 @@ public class UnitType
 {
     private static ExtensibleEnum<UnitInfo> extEnum = new ExtensibleEnum<>();
 
-    public static void addUnit(String id, UnitInfo info)
+    public static void add(String enumId, UnitInfo type)
     {
-        extEnum.addConstant(id, info);
+        extEnum.addConstant(enumId, type);
     }
 
-    public static void getUnit(String id)
+    public static UnitInfo get(String enumId)
     {
-        extEnum.valueOf(id);
+        return extEnum.valueOf(enumId);
     }
 
-    public static Collection<UnitInfo> values()
+    public static Collection<UnitInfo> getAll()
     {
         return extEnum.values();
+    }
+
+    public static void remove(String enumId)
+    {
+        extEnum.remove(enumId);
+    }
+
+    public static int getAddedCount()
+    {
+        return extEnum.getSize();
     }
 }

@@ -12,8 +12,10 @@ import java.util.List;
 public abstract class Unit extends MapObject implements UnitInfo
 {
     protected List<TerrainObjectType> movableTerrain = new ArrayList<>();
-    protected Squad b;
+    private UnitInfo info;
+    protected Squad s;
     protected Location loc;
+    private Texture t;
 
     protected Unit()
     {
@@ -21,7 +23,9 @@ public abstract class Unit extends MapObject implements UnitInfo
 
     public Unit(UnitInfo info, Squad s)
     {
-
+        this.info = info;
+        this.t = info.getTexture();
+        this.s = s;
     }
 
     public Unit(UnitInfo info)
@@ -36,15 +40,25 @@ public abstract class Unit extends MapObject implements UnitInfo
 
     public Squad getSquad()
     {
-        if (this.b == null)
+        if (this.s == null)
         {
-            this.b = new Squad();
+            this.s = new Squad();
         }
-        return this.b;
+        return this.s;
     }
 
     public boolean canMoveOn(TerrainObject object)
     {
         return movableTerrain.contains(object.getType());
+    }
+
+    public Texture getTexture()
+    {
+        return t;
+    }
+
+    public void setTexture(Texture t)
+    {
+        this.t = t;
     }
 }

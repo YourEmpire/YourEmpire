@@ -33,6 +33,11 @@ public class ExtensibleEnum<T>
         return constants.values();
     }
 
+    public void remove(String name)
+    {
+        constants.remove(name);
+    }
+
     public int getSize()
     {
         return constants.size();

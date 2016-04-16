@@ -5,7 +5,7 @@ import pl.yourempire.api.religion.Religion;
 public class CityObject extends MapObject
 {
     private int population;
-    private Religion religion;
+    private Texture texture;
 
     public int getPopulation() {
         return this.population;
@@ -13,13 +13,5 @@ public class CityObject extends MapObject
 
     public void setPopulation(int population) {
         this.population = population;
-    }
-
-    public Religion getReligion() {
-        return this.religion;
-    }
-
-    public void setReligion(Religion religion) {
-        this.religion = religion;
     }
 }
