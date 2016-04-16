@@ -10,6 +10,7 @@ import pl.yourempire.api.object.terrain.TerrainObjectType;
 
 public interface UnitInfo
 {
+    String getDisplayName();
     ID getID();
     int getStartHP();
     int getDamage();
