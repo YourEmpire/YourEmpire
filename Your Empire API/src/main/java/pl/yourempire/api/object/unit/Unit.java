@@ -30,7 +30,9 @@ public abstract class Unit extends MapObject implements UnitInfo
 
     public Unit(UnitInfo info)
     {
-        this(info, new Squad());
+        this.info = info;
+        this.t = info.getTexture();
+        this.s = new Squad(this);
     }
 
     public void addMovableTerrain(TerrainObjectType t)
@@ -42,7 +44,7 @@ public abstract class Unit extends MapObject implements UnitInfo
     {
         if (this.s == null)
         {
-            this.s = new Squad();
+            this.s = new Squad(this);
         }
         return this.s;
     }

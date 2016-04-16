@@ -4,6 +4,8 @@ import pl.mcplayg.quickrgba.QRGBAImage;
 
 public class Texture
 {
+    public static final Texture EMPTY = new Texture(new QRGBAImage(64, 64));
+
     private QRGBAImage image;
     public Texture(QRGBAImage image)
     {

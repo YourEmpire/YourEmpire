@@ -38,6 +38,12 @@ public class Commander extends Unit
     }
 
     @Override
+    public String getDisplayName()
+    {
+        return u.getDisplayName();
+    }
+
+    @Override
     public int getStartHP()
     {
         return u.getStartHP();
