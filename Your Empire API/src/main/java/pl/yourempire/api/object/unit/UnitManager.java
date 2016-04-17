@@ -5,7 +5,7 @@ import java.util.Collection;
 import pl.yourempire.api.extensibleenum.ExtensibleEnum;
 import pl.yourempire.api.object.unit.info.UnitInfo;
 
-public class UnitType
+public class UnitManager
 {
     private static ExtensibleEnum<UnitInfo> extEnum = new ExtensibleEnum<>();
 

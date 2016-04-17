@@ -1,5 +1,6 @@
 package pl.yourempire.api.object.unit.info;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,9 @@ public class UnitInfoImpl implements UnitInfo
     private int startHP, damage, speed;
     private Texture texture;
     private Map<TerrainObjectType, List<Bonus>> bonuses;
+    protected List<TerrainObjectType> movableTerrain = new ArrayList<>();
+
+
 
     @Override
     public String getDisplayName()
@@ -56,6 +60,14 @@ public class UnitInfoImpl implements UnitInfo
     {
         this.displayName = displayName;
     }
+
+    public List<TerrainObjectType> getMovableTerrain(){return this.movableTerrain;}
+
+    public void addMovableTerrain(TerrainObjectType t)
+    {
+        this.movableTerrain.add(t);
+    }
+
 
     public void setID(ID id)
     {

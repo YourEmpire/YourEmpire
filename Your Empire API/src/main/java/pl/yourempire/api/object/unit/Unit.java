@@ -4,41 +4,45 @@ import pl.yourempire.api.object.*;
 import pl.yourempire.api.object.terrain.TerrainObject;
 import pl.yourempire.api.object.terrain.TerrainObjectType;
 import pl.yourempire.api.object.unit.info.UnitInfo;
+import pl.yourempire.api.object.unit.info.UnitInfoImpl;
 import pl.yourempire.api.positioning.Location;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Unit extends MapObject implements UnitInfo
+public class Unit extends MapObject
 {
-    protected List<TerrainObjectType> movableTerrain = new ArrayList<>();
-    private UnitInfo info;
+
+    private UnitInfoImpl info;
     protected Squad s;
     protected Location loc;
     private Texture t;
+    private int hp;
 
     protected Unit()
     {
     }
 
-    public Unit(UnitInfo info, Squad s)
+    public Unit(UnitInfoImpl info, Squad s,Location loc)
     {
         this.info = info;
         this.t = info.getTexture();
+        this.hp = info.getStartHP();
+        this.loc = loc;
         this.s = s;
+
     }
 
-    public Unit(UnitInfo info)
+    public Unit(UnitInfoImpl info)
     {
         this.info = info;
         this.t = info.getTexture();
+        this.hp = info.getStartHP();
+        this.loc = loc;
         this.s = new Squad(this);
     }
 
-    public void addMovableTerrain(TerrainObjectType t)
-    {
-        this.movableTerrain.add(t);
-    }
+// Getters
 
     public Squad getSquad()
     {
@@ -49,18 +53,50 @@ public abstract class Unit extends MapObject implements UnitInfo
         return this.s;
     }
 
+    public int getSpeed()
+    {
+        return info.getSpeed();
+    }
+
     public boolean canMoveOn(TerrainObject object)
     {
-        return movableTerrain.contains(object.getType());
+        return info.getMovableTerrain().contains(object.getType());
     }
 
     public Texture getTexture()
     {
-        return t;
+        return info.getTexture();
     }
 
-    public void setTexture(Texture t)
+    public boolean isAlive()
     {
-        this.t = t;
+        if(this.hp >0)
+        {
+            return true;
+        }
+
+        if(this.hp <=0)
+        {
+            return false;
+        }
+
+        else
+        {
+            return false;
+        }
     }
+
+    // Setters && Modify
+
+    public void setHP(int hp)
+    {
+        this.hp = hp;
+    }
+
+
+
+
+
+
+
 }
