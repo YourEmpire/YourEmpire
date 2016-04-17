@@ -19,6 +19,8 @@ public class MapObject
     }
     public ID getID()
     {
+
         return this.id;
     }
+
 }

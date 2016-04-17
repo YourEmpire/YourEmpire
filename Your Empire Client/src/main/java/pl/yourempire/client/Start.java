@@ -15,6 +15,8 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import pl.yourempire.api.logger.YEFormatter;
+import pl.yourempire.api.object.unit.Unit;
+import pl.yourempire.api.object.unit.info.UnitInfoImpl;
 
 public final class Start
 {
@@ -62,7 +64,6 @@ public final class Start
         }
         
         System.out.println("Starting Your Empire " + VERSION + "...");
-        
         // Creating default logger
         Logger log = Logger.getLogger("Your Empire");
         log.setUseParentHandlers(false);
