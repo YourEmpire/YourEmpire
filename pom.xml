@@ -12,6 +12,7 @@
         <module>Your Empire API</module>
         <module>Your Empire Client</module>
         <module>Your Empire Server</module>
+        <module>Basic Content Addon</module>
     </modules>
 
     <dependencies>

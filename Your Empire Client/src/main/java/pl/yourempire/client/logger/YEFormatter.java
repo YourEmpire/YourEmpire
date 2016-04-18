@@ -1,4 +1,4 @@
-package pl.yourempire.api.logger;
+package pl.yourempire.client.logger;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

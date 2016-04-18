@@ -12,31 +12,26 @@ import java.util.List;
 
 public class Unit extends MapObject
 {
-
     private UnitInfoImpl info;
     protected Squad s;
     protected Location loc;
-    private Texture t;
     private int hp;
 
-    protected Unit()
+    protected Unit() // Special constructor for these, who want to create "special" unit.
     {
     }
 
-    public Unit(UnitInfoImpl info, Squad s,Location loc)
+    public Unit(UnitInfoImpl info, Squad s, Location loc)
     {
         this.info = info;
-        this.t = info.getTexture();
         this.hp = info.getStartHP();
         this.loc = loc;
         this.s = s;
-
     }
 
-    public Unit(UnitInfoImpl info)
+    public Unit(UnitInfoImpl info, Location loc)
     {
         this.info = info;
-        this.t = info.getTexture();
         this.hp = info.getStartHP();
         this.loc = loc;
         this.s = new Squad(this);
@@ -60,7 +55,7 @@ public class Unit extends MapObject
 
     public boolean canMoveOn(TerrainObject object)
     {
-        return info.getMovableTerrain().contains(object.getType());
+        return info.getMovableTerrain().contains(object.getType()) || getMap().get(getLocation()).canStayOn(this);
     }
 
     public Texture getTexture()
@@ -70,20 +65,7 @@ public class Unit extends MapObject
 
     public boolean isAlive()
     {
-        if(this.hp >0)
-        {
-            return true;
-        }
-
-        if(this.hp <=0)
-        {
-            return false;
-        }
-
-        else
-        {
-            return false;
-        }
+        return this.hp > 0;
     }
 
     // Setters && Modify

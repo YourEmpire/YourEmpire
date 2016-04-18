@@ -1,6 +1,7 @@
 package pl.yourempire.api.object.terrain;
 
 import pl.yourempire.api.object.MapObject;
+import pl.yourempire.api.object.unit.Unit;
 import pl.yourempire.api.positioning.Location;
 
 public class TerrainObject
@@ -37,5 +38,10 @@ public class TerrainObject
     public void setObjectOn(MapObject objectOn)
     {
         this.objectOn = objectOn;
+    }
+
+    public boolean canStayOn(Unit u)
+    {
+        return type.canMoveOn(u);
     }
 }
