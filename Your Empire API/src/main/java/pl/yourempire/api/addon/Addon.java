@@ -1,6 +1,7 @@
 package pl.yourempire.api.addon;
 
 import java.io.File;
+import java.util.Properties;
 
 public class Addon
 {
@@ -20,6 +21,11 @@ public class Addon
 
     public void onDisable()
     {
+    }
+
+    public Properties getAddonProperties()
+    {
+        return ald.getProperties();
     }
 
     public File getDataFolder()
