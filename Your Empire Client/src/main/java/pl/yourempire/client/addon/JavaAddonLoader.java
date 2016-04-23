@@ -9,7 +9,6 @@ import java.util.Properties;
 import java.util.jar.JarFile;
 
 import pl.yourempire.api.addon.Addon;
-import pl.yourempire.api.addon.AddonLoaderData;
 import pl.yourempire.client.Start;
 
 public class JavaAddonLoader extends AddonLoader
@@ -54,14 +53,19 @@ public class JavaAddonLoader extends AddonLoader
         }
         try
         {
-            Field ald = addon.getClass().getDeclaredField("ald");
-            ald.setAccessible(true);
-            ald.set(addon, new AddonLoaderData(new File(Start.EXEC_JAR_DIR, "addons" + File.separator + addonProps.getProperty("name")), addonProps));
+            Field dataFolder = addon.getClass().getDeclaredField("dataFolder");
+            dataFolder.setAccessible(true);
+            dataFolder.set(addon, new File(Start.EXEC_JAR_DIR, "addons" + File.separator + addonProps.getProperty("name")));
+            Field addonPropsField = addon.getClass().getDeclaredField("addonProps");
+            addonPropsField.setAccessible(true);
+            addonPropsField.set(addon, addonProps);
         } catch (NoSuchFieldException | IllegalAccessException e)
         {
             throw new BadAddonException(e);
         }
         AddonRegistry.register(addon);
+        addon.onLoad();
+        addon.setLoaded(true);
         return addon;
     }
 }

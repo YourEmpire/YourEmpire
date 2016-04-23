@@ -36,40 +36,4 @@ public class Commander extends Unit
     {
         return unitBonuses;
     }
-
-    @Override
-    public String getDisplayName()
-    {
-        return u.getDisplayName();
-    }
-
-    @Override
-    public int getStartHP()
-    {
-        return u.getStartHP();
-    }
-
-    @Override
-    public int getDamage()
-    {
-        return u.getDamage();
-    }
-
-    @Override
-    public int getSpeed()
-    {
-        return u.getSpeed();
-    }
-
-    @Override
-    public Texture getTexture()
-    {
-        return u.getTexture();
-    }
-
-    @Override
-    public Map<TerrainObjectType, List<Bonus>> getBonuses()
-    {
-        return bonuses;
-    }
 }

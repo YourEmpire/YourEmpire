@@ -37,6 +37,7 @@ public final class Start
     }
 
     public static Locale langugage = Locale.getDefault();
+    private static boolean gameLoaded;
 
     protected static Properties gameProps;
     private Start()
@@ -86,5 +87,10 @@ public final class Start
     public String getGameProperty(String name)
     {
         return gameProps.getProperty(name);
+    }
+
+    public boolean isGameLoaded()
+    {
+        return gameLoaded;
     }
 }

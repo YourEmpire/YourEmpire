@@ -5,7 +5,9 @@ import java.util.Properties;
 
 public class Addon
 {
-    protected AddonLoaderData ald;
+    protected File dataFolder;
+    protected Properties addonProps;
+    protected boolean loaded, enabled;
 
     protected Addon()
     {
@@ -25,11 +27,31 @@ public class Addon
 
     public Properties getAddonProperties()
     {
-        return ald.getProperties();
+        return addonProps;
     }
 
     public File getDataFolder()
     {
-        return ald.getDataFolder();
+        return dataFolder;
+    }
+
+    public boolean isEnabled()
+    {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled)
+    {
+        this.enabled = enabled;
+    }
+
+    public boolean isLoaded()
+    {
+        return loaded;
+    }
+
+    public void setLoaded(boolean loaded)
+    {
+        this.loaded = loaded;
     }
 }
