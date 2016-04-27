@@ -2,20 +2,18 @@ package pl.yourempire.api.object.unit;
 
 import pl.yourempire.api.object.*;
 import pl.yourempire.api.object.terrain.TerrainObject;
-import pl.yourempire.api.object.terrain.TerrainObjectType;
-import pl.yourempire.api.object.unit.info.UnitInfo;
 import pl.yourempire.api.object.unit.info.UnitInfoImpl;
+import pl.yourempire.api.player.Player;
 import pl.yourempire.api.positioning.Location;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class Unit extends MapObject
+public class Unit
 {
     private UnitInfoImpl info;
     protected Squad s;
     protected Location loc;
     private int hp;
+    private Player owner;
 
     protected Unit() // Special constructor for these, who want to create "special" unit.
     {
@@ -48,14 +46,10 @@ public class Unit extends MapObject
         return this.s;
     }
 
-    public int getSpeed()
-    {
-        return info.getSpeed();
-    }
 
     public boolean canMoveOn(TerrainObject object)
     {
-        return info.getMovableTerrain().contains(object.getType()) || getMap().get(getLocation()).canStayOn(this);
+        return info.getMovableTerrain().contains(object.getType()) || s.getMap().get(s.getLocation()).canStayOn(this);
     }
 
     public Texture getTexture()
@@ -75,10 +69,12 @@ public class Unit extends MapObject
         this.hp = hp;
     }
 
+    public Player getOwner() {
+        return owner;
+    }
 
-
-
-
-
+    public void setOwner(Player owner) {
+        this.owner = owner;
+    }
 
 }
