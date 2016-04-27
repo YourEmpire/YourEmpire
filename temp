@@ -1,0 +1,22 @@
+[UTF - wersja gry dla której została skonstruowana mapa]
+[Integer - Długość mapy]
+[Integer - Szerokość mapy]
+[UTF - nazwa mapy]
+[UTF - opis mapy wyświetlany w menu]
+[Byte - minimalna ilość graczy]
+[Byte - maksymalna ilość graczy]
+//Te wartości będą w pliku Długość*Szerokość razy
+[UTF - ID terenu]
+[Integer - ilość startowych jednostek/drużynę]
+//Te wartości będą w pliku MaksymalnaIlośćGraczy razy
+//Są to startowe jednostki dla każdej drużyny]
+[UTF - ID unita]
+[Integer - X unita]
+[Integer - Y unita]
+[UTF - ID unita]
+[Integer - X unita]
+[Integer - Y unita]
+[UTF - ID unita]
+[Integer - X unita]
+[Integer - Y unita]
+// Itd.

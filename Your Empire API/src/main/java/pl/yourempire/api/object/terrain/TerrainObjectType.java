@@ -11,6 +11,7 @@ import pl.yourempire.api.object.Texture;
 import pl.yourempire.api.object.unit.Bonus;
 import pl.yourempire.api.object.unit.Unit;
 import pl.yourempire.api.object.unit.UnitManager;
+import pl.yourempire.api.object.unit.info.UnitInfo;
 
 public abstract class TerrainObjectType
 {
@@ -31,6 +32,11 @@ public abstract class TerrainObjectType
         return extEnum.values();
     }
 
+    public static TerrainObjectType getByID(ID id)
+    {
+        return (TerrainObjectType) getAll().stream().filter(t -> t.getID().equals(id)).toArray()[0];
+    }
+
     public static void remove(String enumId)
     {
         extEnum.remove(enumId);
@@ -44,7 +50,7 @@ public abstract class TerrainObjectType
     private ID id;
     private String displayName;
     private Texture texture;
-    private Map<UnitManager, List<Bonus>> bonuses;
+    private Map<UnitInfo, List<Bonus>> bonuses;
 
     public abstract boolean canMoveOn(Unit u);
 
@@ -58,22 +64,22 @@ public abstract class TerrainObjectType
         this.id = id;
     }
 
-    public Map<UnitManager, List<Bonus>> getBonuses()
+    public Map<UnitInfo, List<Bonus>> getBonuses()
     {
         return bonuses;
     }
 
-    public void setBonuses(Map<UnitManager, List<Bonus>> bonuses)
+    public void setBonuses(Map<UnitInfo, List<Bonus>> bonuses)
     {
         this.bonuses = bonuses;
     }
 
-    public List<Bonus> getBonusesFor(UnitManager type)
+    public List<Bonus> getBonusesFor(UnitInfo type)
     {
         return getBonuses().get(type);
     }
 
-    public void addBonusFor(UnitManager type, Bonus b)
+    public void addBonusFor(UnitInfo type, Bonus b)
     {
         if (getBonuses().get(type) == null)
         {
@@ -82,7 +88,7 @@ public abstract class TerrainObjectType
         getBonuses().get(type).add(b);
     }
 
-    public void addBonusesFor(UnitManager type, Collection<Bonus> b)
+    public void addBonusesFor(UnitInfo type, Collection<Bonus> b)
     {
         if (getBonuses().get(type) == null)
         {

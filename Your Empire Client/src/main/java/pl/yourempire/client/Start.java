@@ -2,6 +2,7 @@ package pl.yourempire.client;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URLDecoder;
 import java.util.Locale;
 import java.util.Properties;
@@ -20,6 +21,7 @@ public final class Start
 {
     public static final String VERSION = "0.1";
     public static final File EXEC_JAR_DIR;
+
 
     static
     {
@@ -43,7 +45,8 @@ public final class Start
     private Start()
     {
     }
-    public static void main(String[] args)
+
+    public static void main(String[] args) throws MalformedURLException
     {
         boolean parsed = false;
         Options o = new Options();
@@ -75,13 +78,18 @@ public final class Start
         System.out.println("Starting Your Empire " + VERSION + "...");
         // Creating default logger
         Logger log = Logger.getLogger("Your Empire");
-        log.setUseParentHandlers(false);
-        log.addHandler(new StreamHandler(System.out, new YEFormatter()));
 
         if (! parsed)
         {
             log.severe("Command line has not been parsed!");
         }
+    }
+
+    public static void addLogger(String name)
+    {
+        Logger log = Logger.getLogger("Your Empire");
+        log.setUseParentHandlers(false);
+        log.addHandler(new StreamHandler(System.out, new YEFormatter()));
     }
 
     public String getGameProperty(String name)

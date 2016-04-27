@@ -5,14 +5,15 @@ import pl.yourempire.api.positioning.Location;
 
 public class Map
 {
-    private String name, desc;
+    private String name, description, mapVersion;
     private TerrainObject[][] mapTerrain;
     private int width, height;
+    private byte minPlayers, maxPlayers;
 
-    public Map(String name, int width, int height)
+    public Map(String version, int width, int height)
     {
         this.name = name;
-        this.desc = "";
+        this.description = "";
         this.width = width;
         this.height = height;
         this.mapTerrain = new TerrainObject[height][width];
@@ -36,5 +37,60 @@ public class Map
     public void set(Location loc, TerrainObject tile)
     {
         set(loc.getX(), loc.getY(), tile);
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
+    public byte getMinPlayers()
+    {
+        return minPlayers;
+    }
+
+    public byte getMaxPlayers()
+    {
+        return maxPlayers;
+    }
+
+    public void setMinPlayers(byte minPlayers)
+    {
+        this.minPlayers = minPlayers;
+    }
+
+    public void setMaxPlayers(byte maxPlayers)
+    {
+        this.maxPlayers = maxPlayers;
+    }
+
+    public String getMapVersion()
+    {
+        return mapVersion;
     }
 }

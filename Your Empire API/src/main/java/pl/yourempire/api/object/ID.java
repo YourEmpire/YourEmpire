@@ -18,6 +18,13 @@ public class ID
         this.name = name;
     }
 
+    public ID(String textID)
+    {
+        String[] split = textID.split(":");
+        addon = split[0];
+        name = split[1];
+    }
+
     public String getAddon()
     {
         return this.addon;
@@ -31,5 +38,11 @@ public class ID
     public String getTextID()
     {
         return addon + ":" + name;
+    }
+
+    @Override
+    public boolean equals(Object anObject)
+    {
+        return anObject instanceof ID && ((ID) anObject).getTextID().equals(getTextID());
     }
 }
