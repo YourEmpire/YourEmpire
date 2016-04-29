@@ -15,6 +15,7 @@ public class Updater
         String newVersion = s.next();
         return gameVersion.equals(newVersion);
     }
+
     public static void downloadUpdate()
     {
         //TODO: Download update

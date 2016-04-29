@@ -69,7 +69,6 @@ public class Start
                 }
                 //Loading map, saves...
             }
-
         } catch (ParseException e)
         {
             parsed = true;
