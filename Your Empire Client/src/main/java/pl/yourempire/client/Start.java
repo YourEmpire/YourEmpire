@@ -1,6 +1,7 @@
 package pl.yourempire.client;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URLDecoder;
@@ -15,6 +16,8 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import pl.yourempire.api.updater.UpdateEnum;
+import pl.yourempire.api.updater.Updater;
 import pl.yourempire.client.logger.YEFormatter;
 
 public final class Start
@@ -46,7 +49,7 @@ public final class Start
     {
     }
 
-    public static void main(String[] args) throws MalformedURLException
+    public static void main(String[] args) throws IOException
     {
         boolean parsed = false;
         Options o = new Options();
@@ -78,6 +81,11 @@ public final class Start
         System.out.println("Starting Your Empire " + VERSION + "...");
         // Creating default logger
         Logger log = Logger.getLogger("Your Empire");
+
+        //Check update
+        if (Updater.isUpdate(VERSION, UpdateEnum.CLIENT)) {
+            log.warning("New version was found! Please update your game...");
+        }
 
         if (! parsed)
         {

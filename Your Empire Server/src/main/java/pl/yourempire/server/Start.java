@@ -1,6 +1,7 @@
 package pl.yourempire.server;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.logging.Logger;
@@ -12,6 +13,8 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import pl.yourempire.api.updater.UpdateEnum;
+import pl.yourempire.api.updater.Updater;
 import pl.yourempire.client.logger.YEFormatter;
 
 public class Start
@@ -31,11 +34,9 @@ public class Start
             e.printStackTrace();
         }
         SERVERS_DIR = dir;
-
     }
 
-    public static void main(String args[])
-    {
+    public static void main(String args[]) throws IOException {
         boolean parsed = false;
         Options o = new Options();
         o.addOption(Option.builder("h").longOpt("help").desc("Displays this help message.").build());
@@ -73,6 +74,9 @@ public class Start
             parsed = true;
         }
         log.info("Staring Your Empire server " + VERSION);
+        if (Updater.isUpdate(VERSION, UpdateEnum.SERVER)) {
+            log.warning("New version was found! Please update your game...");
+        }
     }
 
     public static void addLogger(String name)
