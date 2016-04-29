@@ -13,6 +13,7 @@ public class Updater
         URL url = new URL("http://yourempire.com/version.txt"); //Maybe from GitHub?
         Scanner s = new Scanner(url.openStream());
         String newVersion = s.next();
+        s.close();
         return gameVersion.equals(newVersion);
     }
 
