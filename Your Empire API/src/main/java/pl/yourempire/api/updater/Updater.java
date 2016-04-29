@@ -14,9 +14,9 @@ public class Updater
         Scanner s = new Scanner(url.openStream());
         String newVersion = s.next();
         s.close();
-        return
-                gameVersion.equals(newVersion);
+        return gameVersion.equals(newVersion);
     }
+
     public static void downloadUpdate()
     {
         //TODO: Download update
