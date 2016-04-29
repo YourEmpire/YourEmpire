@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: pl.yourempire.server.Start
+Class-Path: yourempire.jar api/0.1/yourempire-api-0.1.jar

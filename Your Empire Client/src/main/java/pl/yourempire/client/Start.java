@@ -87,7 +87,7 @@ public final class Start
 
     public static void addLogger(String name)
     {
-        Logger log = Logger.getLogger("Your Empire");
+        Logger log = Logger.getLogger(name);
         log.setUseParentHandlers(false);
         log.addHandler(new StreamHandler(System.out, new YEFormatter()));
     }

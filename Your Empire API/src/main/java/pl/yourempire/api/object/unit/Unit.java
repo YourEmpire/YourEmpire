@@ -46,6 +46,9 @@ public class Unit
         return this.s;
     }
 
+    public Player getOwner() {
+        return owner;
+    }
 
     public boolean canMoveOn(TerrainObject object)
     {
@@ -62,15 +65,11 @@ public class Unit
         return this.hp > 0;
     }
 
-    // Setters && Modify
+    // Setters
 
     public void setHP(int hp)
     {
         this.hp = hp;
-    }
-
-    public Player getOwner() {
-        return owner;
     }
 
     public void setOwner(Player owner) {
