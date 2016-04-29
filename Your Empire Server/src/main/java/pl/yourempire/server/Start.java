@@ -18,8 +18,7 @@ public class Start
 {
     public static final String VERSION = "0.1";
     public static final File SERVERS_DIR;
-    static Logger log;
-
+    public static Logger log = Logger.getLogger("Your Empire");
     static
     {
         File dir = null;
@@ -78,13 +77,9 @@ public class Start
 
     public static void addLogger(String name)
     {
-        log = Logger.getLogger(name);
+        Logger log = Logger.getLogger(name);
         log.setUseParentHandlers(false);
         log.addHandler(new StreamHandler(System.out, new YEFormatter()));
     }
 
-    public static Logger getLogger()
-    {
-        return log;
-    }
 }
