@@ -2,10 +2,13 @@ package pl.yourempire.server.server;
 
 import pl.yourempire.api.addon.Addon;
 import pl.yourempire.api.game.Game;
+import pl.yourempire.client.addon.AddonLoader;
 import pl.yourempire.client.addon.AddonManager;
+import pl.yourempire.client.addon.JavaAddonLoader;
 import pl.yourempire.server.Start;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -24,7 +27,7 @@ public class Server
     private int slots;
     private Map<String, Addon> addons; //Name and Addon
 
-    public Server(Game game, int port, String name, int slots) throws UnknownHostException
+    public Server(Game game, int port, String name, int slots) throws IOException
     {
         this.game = game;
         this.ip = InetAddress.getLocalHost();
@@ -36,9 +39,9 @@ public class Server
 
         this.addons = new HashMap<>();
 
-        for(File addon : addonsDir.listFiles())
+        for (File f : addonsDir.listFiles())
         {
-            //TODO: Loading addons
+
         }
     }
 

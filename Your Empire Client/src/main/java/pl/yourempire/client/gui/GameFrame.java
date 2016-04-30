@@ -11,6 +11,8 @@ public class GameFrame extends JFrame
 {
     public GameFrame() throws IOException {
         super("Your Empire " + Start.VERSION);
-        // this.setIconImage(ImageIO.read(new File("icon")));
+        this.setTitle("Your Empire " + Start.VERSION);
+        this.setLayout(null);
+        this.setIconImage(ImageIO.read(new File(Start.EXEC_JAR_DIR + "/icon.ico")));
     }
 }

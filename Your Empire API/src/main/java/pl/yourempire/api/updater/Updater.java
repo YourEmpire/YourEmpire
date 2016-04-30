@@ -1,7 +1,9 @@
 package pl.yourempire.api.updater;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.Scanner;
 
 /**
@@ -13,11 +15,11 @@ public class Updater
         URL url = null;
         if(update.equals(UpdateEnum.CLIENT))
         {
-            url = new URL("http://yourempire.com/version-client.txt"); //Maybe from GitHub?
+            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20Client/src/main/resources/version-client.txt"); //Maybe from GitHub?
         }
         else if(update.equals(UpdateEnum.SERVER))
         {
-            url = new URL("http://yourempire.com/version-server.txt");
+            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20Client/src/main/resources/version-server.txt");
         }
         Scanner s = new Scanner(url.openStream());
         String newVersion = s.next();
@@ -30,11 +32,11 @@ public class Updater
         URL url = null;
         if(update.equals(UpdateEnum.CLIENT))
         {
-            url = new URL("http://yourempire.com/version-client.txt"); //Maybe from GitHub?
+            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20Client/src/main/resources/version-client.txt"); //Maybe from GitHub?
         }
         else if(update.equals(UpdateEnum.SERVER))
         {
-            url = new URL("http://yourempire.com/version-server.txt");
+            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20Client/src/main/resources/version-server.txt");
         }
         Scanner s = new Scanner(url.openStream());
         String newVersion = s.next();
@@ -42,9 +44,10 @@ public class Updater
         return newVersion;
     }
 
-    public static void downloadUpdate(UpdateEnum update) throws IOException
+    public static File downloadUpdate(File downloadDir, UpdateEnum update) throws IOException
     {
         URL url = null;
+        File download;
         if(update.equals(UpdateEnum.CLIENT))
         {
 
@@ -53,6 +56,9 @@ public class Updater
         {
 
         }
+
+        Files.copy(url.openStream(), downloadDir.toPath()); //Can it work?
+        return new File(downloadDir + "/updater.jar");
         //TODO: Download update
     }
 }
