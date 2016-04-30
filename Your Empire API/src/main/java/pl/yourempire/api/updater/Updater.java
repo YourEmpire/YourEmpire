@@ -11,20 +11,10 @@ import java.util.Scanner;
  */
 public class Updater
 {
-    public static boolean isUpdate(String gameVersion, UpdateEnum update) throws IOException {
-        URL url = null;
-        if(update.equals(UpdateEnum.CLIENT))
-        {
-            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20Client/src/main/resources/version-client.txt"); //Maybe from GitHub?
-        }
-        else if(update.equals(UpdateEnum.SERVER))
-        {
-            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20Client/src/main/resources/version-server.txt");
-        }
-        Scanner s = new Scanner(url.openStream());
-        String newVersion = s.next();
-        s.close();
-        return gameVersion.equals(newVersion);
+    public static final String API_VERSION = "0.1"; //API version
+
+    public static boolean isUpdate(String installedVersion, UpdateEnum update) throws IOException {
+        return installedVersion.equals(getNewVersion(update));
     }
 
     public static String getNewVersion(UpdateEnum update) throws IOException
@@ -36,7 +26,11 @@ public class Updater
         }
         else if(update.equals(UpdateEnum.SERVER))
         {
-            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20Client/src/main/resources/version-server.txt");
+            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20Server/src/main/resources/version-server.txt");
+        }
+        else if(update.equals(UpdateEnum.API))
+        {
+            url = new URL("https://raw.githubusercontent.com/YourEmpire/YourEmpire/master/Your%20Empire%20API/src/main/resources/version-api.txt");
         }
         Scanner s = new Scanner(url.openStream());
         String newVersion = s.next();
@@ -56,9 +50,16 @@ public class Updater
         {
 
         }
+        else if(update.equals(UpdateEnum.API))
+        {
 
+        }
         Files.copy(url.openStream(), downloadDir.toPath()); //Can it work?
         return new File(downloadDir + "/updater.jar");
         //TODO: Download update
+    }
+
+    public static String getApiVersion(){
+        return API_VERSION;
     }
 }
