@@ -1,1 +1,5 @@
 /.idea/
+/Your Empire API/target/
+/Your Empire Client/target/
+/Your Empire Server/target/
+temp*

@@ -3,7 +3,6 @@ package pl.yourempire.client;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URLDecoder;
 import java.util.Locale;
 import java.util.Properties;
@@ -16,8 +15,6 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import pl.yourempire.api.updater.UpdateEnum;
-import pl.yourempire.api.updater.Updater;
 import pl.yourempire.client.logger.YEFormatter;
 
 public final class Start
@@ -79,13 +76,10 @@ public final class Start
         }
         
         System.out.println("Starting Your Empire " + VERSION + "...");
+
         // Creating default logger
         Logger log = Logger.getLogger("Your Empire");
-
-        //Check update
-        if (Updater.isUpdate(VERSION, UpdateEnum.CLIENT)) {
-            log.warning("New version was found! Please update your game...");
-        }
+        addLogger("Your Empire");
 
         if (! parsed)
         {
