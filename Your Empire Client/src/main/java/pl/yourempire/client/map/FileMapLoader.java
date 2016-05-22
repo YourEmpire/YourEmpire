@@ -53,7 +53,6 @@ public class FileMapLoader extends MapLoader
             y = dis.readInt();
             if (unitState == 0)
             {
-
             }
         }
         return result;

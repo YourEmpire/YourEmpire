@@ -71,11 +71,22 @@ public class Squad extends MapObject
 
     public void addUnit(Unit u)
     {
-    this.units.add(u);
+        if (u instanceof Commander && com == null) // If unit is commander, and the squad doesn't contain any commander
+        {
+            com = (Commander) u;
+        }
+        else
+        {
+            units.add(u);
+        }
     }
+
     public void addUnits(Collection<Unit> units)
     {
-        this.units.addAll(units);
+        for (Unit u : units)
+        {
+            addUnit(u);
+        }
     }
 
 }
